@@ -41,12 +41,13 @@ public class BoardMapperTeats {
 	}
 
 	// U 업데이트
+	
 	public void update() {
 		BoardVO board = new BoardVO();
 		board.setBno(2039);
-		board.setTitle("수정 작성한 글");
-		board.setContent("수정 작성한 내용");
-		board.setWriter("newbie");
+		board.setTitle("내용11수정");
+		board.setContent("내용22수정");
+		board.setWriter("내용33수정");
 		mapper.update(board);
 	}
 
