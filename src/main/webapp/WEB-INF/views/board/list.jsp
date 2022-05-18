@@ -58,9 +58,9 @@
 				</tr>
 
 				<c:forEach var="list" items="${list }" varStatus="index">
-					<tr>
+					<tr >
 						<th><c:out value="${list.bno }" /></th>
-						<th><c:out value="${list.title }" /></th>
+						<th><a href=""> <c:out value="${list.title }" /> </a></th>
 						<th><c:out value="${list.content }" /></th>
 						<th><c:out value="${list.writer}" /></th>
 						<th><c:out value="${list.regdate}" /></th>
