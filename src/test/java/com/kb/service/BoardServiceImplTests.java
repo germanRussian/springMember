@@ -31,13 +31,14 @@ public class BoardServiceImplTests {
 	}
 
 	// service - R 목록 보기
+	
 	public void getListTest() {
 		
 		log.info(service.getList());
 	}
 
 	// service - R 상세보기
-	@Test
+	
 	public void getTest() {
 		
 		log.info(service.get(2039));
@@ -48,14 +49,15 @@ public class BoardServiceImplTests {
 	public void modifyTest() {
 		
 		BoardVO board = new BoardVO();
-		board.setBno(2041);
-		board.setTitle("내용55555555수정123");
-		board.setContent("내용5555555수정123");
-		board.setWriter("내용5555555555수정123");
+		board.setBno(2038);
+		board.setTitle("수정 됨");
+		board.setContent("수정 됨");
+		board.setWriter("수정 됨");
 		service.modify(board);
 	}
 
 	// service - D 삭제
+	@Test
 	public void removeTest() {
 		
 		service.remove(2041);

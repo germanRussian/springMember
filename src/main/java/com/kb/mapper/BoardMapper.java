@@ -2,8 +2,11 @@ package com.kb.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Mapper;
+
 import com.kb.domain.BoardVO;
 
+@Mapper
 public interface BoardMapper {
 
 	// C 등록

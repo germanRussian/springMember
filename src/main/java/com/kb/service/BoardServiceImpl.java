@@ -49,14 +49,15 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public boolean modify(BoardVO board) {
 		log.info("modify...................");
-		return false;
+		return mapper.update(board) == 1;
 	}
 
 	// service - D 삭제
 	@Override
 	public boolean remove(int bno) {
 		log.info("remove...................");
-		return false;
+		return mapper.delete(bno) == 1;
+		//1(true)
 	}
 
 }

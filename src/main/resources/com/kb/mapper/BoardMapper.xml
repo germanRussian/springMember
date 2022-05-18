@@ -15,7 +15,7 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 	<!-- R 목록보기 -->
 	<select id="getList" resultType="com.kb.domain.BoardVO">
 		SELECT * from tbl_board ORDER BY
-		bno DESC Limit 0,100
+		bno DESC Limit 0,10
 	</select>
 
 	<!-- R 상세보기 -->
