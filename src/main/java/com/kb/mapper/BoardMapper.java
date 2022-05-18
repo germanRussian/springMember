@@ -16,8 +16,8 @@ public interface BoardMapper {
 	public BoardVO read(int bno);
 	
 	// U 
-	public void update(BoardVO board);
+	public int update(BoardVO board);
 	
 	// D
-	public void delete(int bno);
+	public int delete(int bno);
 }
