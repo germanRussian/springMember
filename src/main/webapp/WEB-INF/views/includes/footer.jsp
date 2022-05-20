@@ -235,7 +235,7 @@
 	<!-- /#side-panel -->
 	<!-- --------------------------------------------------------------------------------------------------- -->
 	<!-- build:js ../assets/js/core.min.js -->
-	<script src="/resources/libs/bower/jquery/dist/jquery.js"></script>
+	
 	<script src="/resources/libs/bower/jquery-ui/jquery-ui.min.js"></script>
 	<script
 		src="/resources/libs/bower/jQuery-Storage-API/jquery.storageapi.min.js"></script>

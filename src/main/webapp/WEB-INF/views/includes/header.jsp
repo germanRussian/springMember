@@ -12,7 +12,7 @@
 <meta name="description" content="Admin, Dashboard, Bootstrap" />
 <link rel="shortcut icon" sizes="196x196"
 	href="/resources/assets/images/logo.png">
-<title> 목록 화면 구현 </title>
+<title>목록 화면 구현</title>
 
 <link rel="stylesheet"
 	href="/resources/libs/bower/font-awesome/css/font-awesome.min.css">
@@ -33,6 +33,7 @@
 	href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900,300">
 <script
 	src="/resources/libs/bower/breakpoints.js/dist/breakpoints.min.js"></script>
+<script src="/resources/libs/bower/jquery/dist/jquery.js"></script>
 <script>
 	Breakpoints();
 </script>
@@ -83,7 +84,7 @@
 							<span class="hamburger-box"><span class="hamburger-inner"></span></span>
 					</a></li>
 					<li>
-						<h5 class="page-title hidden-menubar-top hidden-float">Dashboard</h5>
+						<h5 class="page-title hidden-menubar-top hidden-float">SpringBoardPractice</h5>
 					</li>
 				</ul>
 
@@ -103,12 +104,12 @@
 								<div class="media">
 									<div class="media-left">
 										<div class="avatar avatar-xs avatar-circle">
-											<img src="/resources/assets/images/221.jpg" alt=""> <i
+											<img src="/resources/assets/images/251.jpg" alt=""> <i
 												class="status status-online"></i>
 										</div>
 									</div>
 									<div class="media-body">
-										<h5 class="media-heading">John Doe</h5>
+										<h5 class="media-heading">LEE JONGHYUK</h5>
 										<small class="media-meta">Active now</small>
 									</div>
 								</div>
@@ -119,7 +120,7 @@
 								<div class="media">
 									<div class="media-left">
 										<div class="avatar avatar-xs avatar-circle">
-											<img src="/resources/assets/images/205.jpg" alt=""> <i
+											<img src="/resources/assets/images/251.jpg" alt=""> <i
 												class="status status-offline"></i>
 										</div>
 									</div>
@@ -213,7 +214,7 @@
 										Студент </small> <span class="caret"></span>
 							</a>
 								<ul class="dropdown-menu animated flipInY">
-									<li><a class="text-color" href="/index.html"> <span
+									<li><a class="text-color" href="/list.jsp"> <span
 											class="m-r-xs"><i class="fa fa-home"></i></span> <span>Home</span>
 									</a></li>
 									<li><a class="text-color" href="profile.html"> <span
