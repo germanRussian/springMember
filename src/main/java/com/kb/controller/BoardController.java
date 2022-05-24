@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.kb.domain.BoardVO;
+import com.kb.domain.Criteria;
+import com.kb.domain.PageDTO;
 import com.kb.service.BoardService;
 
 import lombok.AllArgsConstructor;
@@ -27,14 +29,29 @@ public class BoardController {
 	// ------------------------------------------------------------------------------------------------------------------------
 
 	// R - 리스트 / 주소 : http://localhost/board/list
-	@GetMapping("list")
-	public void list(Model model) {
-		log.info("목록");
-		model.addAttribute("list", service.getList());// model을 통해서, view에 값을 주는 방법
+//	@GetMapping("list")
+//	public void list(Model model) {
+//		log.info("목록");
+//		model.addAttribute("list", service.getList());// model을 통해서, view에 값을 주는 방법
+//	}
+	
+	
+	
+	//10개씩 게시물을 보여주겠다~~
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
+	public void list(Criteria cri, Model model) {
+		log.info("cri paging");
+		model.addAttribute("list", service.getListWithPaging(cri));
+		model.addAttribute("pageMaker", new PageDTO(service.getListWithcnt(), cri)); //전체1000건이다~~~.
+		
 	}
+	
+	
 
 	// ------------------------------------------------------------------------------------------------------------------------
 
+	
+	
 	// C - 글 등록
 	/*
 	 * 다른 방법 public String register() { log.info("등록"); return "board/register" }
@@ -59,6 +76,9 @@ public class BoardController {
 		model.addAttribute("board", service.get(bno));
 
 	}
+	
+	//paging
+	
 
 	// U - 수정 modify
 	@RequestMapping(value = "/get", method = RequestMethod.POST)

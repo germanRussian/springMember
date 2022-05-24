@@ -12,11 +12,26 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 		values(#{title}, #{content}, #{writer})
 	</insert>
 
+
 	<!-- R 목록보기 -->
 	<select id="getList" resultType="com.kb.domain.BoardVO">
 		SELECT * from tbl_board ORDER BY
-		bno DESC Limit 0,10
+		bno DESC Limit 0,100
 	</select>
+
+
+	<!-- R 목록 보기 - Paging1 -->
+	<select id="getListWithPaging" resultType="com.kb.domain.BoardVO">
+		<![CDATA[
+		SELECT * FROM tbl_board ORDER BY bno DESC LIMIT #{amount} offset #{pageStart}
+		]]>
+	</select>
+	
+	<!-- R 목록보기 - Paging2  -->
+	<select id="getListWithcnt" resultType="int">
+		SELECT count(*) from tbl_board
+	</select>
+
 
 	<!-- R 상세보기 -->
 	<select id="read" resultType="com.kb.domain.BoardVO">
@@ -24,14 +39,17 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 		#{bno}
 	</select>
 
+
 	<!-- U -->
 	<insert id="update">
 		update tbl_board set
 		title = #{title},
-		content = #{content}, writer = #{writer}, updatedate = now()
+		content =
+		#{content}, writer = #{writer}, updatedate = now()
 		where bno =
 		#{bno}
 	</insert>
+
 
 	<!-- D -->
 	<delete id="delete">

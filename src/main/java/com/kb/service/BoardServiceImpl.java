@@ -6,37 +6,50 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kb.domain.BoardVO;
+import com.kb.domain.Criteria;
 import com.kb.mapper.BoardMapper;
 
 import lombok.AllArgsConstructor;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 
-
 @Service
 @Log4j
 @AllArgsConstructor
-public class BoardServiceImpl implements BoardService{
-	
+public class BoardServiceImpl implements BoardService {
+
 	@Setter(onMethod_ = @Autowired)
 	private BoardMapper mapper;
-	
-	
-	
+
 	// service - c 확인
 	@Override
 	public void register(BoardVO board) {
 		log.info("register................");
 		mapper.insert(board);
 	}
-	
-	
+
 	// service - R 목록 보기
 	@Override
 	public List<BoardVO> getList() {
 		log.info("getList.................");
 		return mapper.getList();
 	}
+
+	
+	//service - R 목록 보기 - paging1
+	@Override
+	public List<BoardVO> getListWithPaging(Criteria cri) {
+		log.info("getListWithPaging.................");
+		return mapper.getListWithPaging(cri);
+	}
+	
+	//service - R 목록 보기 - paging2
+	@Override
+	public int getListWithcnt() {
+		log.info("getListWithcnt...................");
+		return mapper.getListWithcnt();
+	}
+	
 
 	// service - R 상세보기
 	@Override
@@ -57,7 +70,11 @@ public class BoardServiceImpl implements BoardService{
 	public boolean remove(int bno) {
 		log.info("remove...................");
 		return mapper.delete(bno) == 1;
-		//1(true)
+		// 1(true)
 	}
+
+	
+
+	
 
 }
