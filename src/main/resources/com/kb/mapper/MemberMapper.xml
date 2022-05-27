@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kb.mapper.MemberMapper">
+
+	<!-- C -->
+	<insert id="insert">
+		insert into tbl_member( uname, schoolname, gradeclass, uid, upw, route, boardingplace, joindate )
+		values( #{uname}, #{schoolname},#{gradeclass},#{uid},sha(#{upw}),#{route},#{boardingplace}, now())
+	</insert>
+
+
+	<!-- R 목록보기 -->
+	<select id="getList" resultType="com.kb.domain.MemberVO">
+		SELECT * from tbl_member ORDER BY
+		num DESC Limit 0,100
+	</select>
+
+
+
+
+
+
+
+	<!-- R 목록 보기 - Paging1 --><!-- My-batis 동적태그 -->
+	<select id="getListWithPaging"
+		resultType="com.kb.domain.MemberVO">
+		
+		<![CDATA[
+		SELECT * FROM tbl_member 
+		WHERE 1=1 
+		]]>
+		<choose>
+			<when test="type == 'uname'">
+				AND uname LIKE concat('%',#{keyword},'%')
+			</when>
+			<when test="type == 'uid'">
+				AND uid LIKE concat ('%',#{keyword},'%')
+			</when>
+		</choose>
+		<![CDATA[
+		ORDER BY num DESC 
+		LIMIT #{amount} offset #{pageStart}
+		]]>
+	</select>
+
+	<!-- R 목록보기 - Paging2 -->
+	<select id="getListWithcnt" resultType="int">
+		SELECT count(*) from tbl_member
+		WHERE 1=1 
+		
+		<choose>
+			<when test="type == 'uname'">
+				AND uname LIKE concat('%',#{keyword},'%')
+			</when>
+			<when test="type == 'uid'">
+				AND uid LIKE concat('%',#{keyword},'%')
+			</when>
+		</choose>
+		
+	</select>
+
+
+
+
+
+
+
+
+
+	<!-- R 상세보기 -->
+	<select id="read" resultType="com.kb.domain.MemberVO">
+		SELECT * from tbl_member where num =
+		#{ num}
+	</select>
+
+
+	<!-- U -->
+	<insert id="update">
+		update tbl_member set
+		num = #{num}, uname = #{uname}, schoolname = #{schoolname}, gradeclass = #{gradeclass}, uid = #{uid}, upw = #{upw}, route = #{route}, boardingplace = #{boardingplace}, joindate = now(), coupon = #{coupon }
+		where num =	#{num}
+	</insert>
+
+
+	<!-- D -->
+	<delete id="delete">
+		delete from tbl_member where num = #{num}
+	</delete>
+
+
+
+
+
+
+
+</mapper>
+
